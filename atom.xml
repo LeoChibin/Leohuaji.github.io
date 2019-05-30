@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://leohuaji.github.io</id>
+    <title>Huaji</title>
+    <updated>2019-05-30T04:26:16.893Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://leohuaji.github.io"/>
+    <link rel="self" href="https://leohuaji.github.io/atom.xml"/>
+    <subtitle>滑天下之大稽</subtitle>
+    <logo>https://leohuaji.github.io/images/avatar.png</logo>
+    <icon>https://leohuaji.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2019, Huaji</rights>
+    <entry>
+        <title type="html"><![CDATA[网页外链音乐播放器]]></title>
+        <id>https://leohuaji.github.io/post/wang-ye-wai-lian-yin-le-bo-fang-qi</id>
+        <link href="https://leohuaji.github.io/post/wang-ye-wai-lian-yin-le-bo-fang-qi">
+        </link>
+        <updated>2019-05-30T04:19:59.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>&lt;audio controls=&quot;controls&quot; playsinline=&quot;&quot; webkit-playsinline=&quot;&quot;&gt;
+&lt;source src=&quot;http://176.122.135.200/music/%E9%9B%B7%E7%A5%9E%E4%B9%8B%E7%AE%A1.mp3&quot; type=&quot;audio/mpeg&quot;&gt;  &lt;/source&gt;&lt;/audio&gt;
+</code></pre>
+<p>使用 <code>&lt;audio&gt;</code> 标签播放器，设置自动播放，循环播放，隐藏播放器等属性，加入以下标签即可：<code>&lt;audio controls=&quot;controls&quot; height=&quot;100&quot; width=&quot;100%&quot; autoplay loop hidden=&quot;true&quot;...&gt;。</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Laravel安装过程中碰到的坑]]></title>
+        <id>https://leohuaji.github.io/post/laravel-an-zhuang-guo-cheng-zhong-peng-dao-de-keng</id>
+        <link href="https://leohuaji.github.io/post/laravel-an-zhuang-guo-cheng-zhong-peng-dao-de-keng">
+        </link>
+        <updated>2019-05-14T17:31:58.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>安装composer</strong>
+Windows端，下载并且运行<a href="https://getcomposer.org/Composer-Setup.exe">Composer-Setup.exe</a>，它将安装最新版本的 Composer ，并设置好系统的环境变量，因此你可以在任何目录下直接使用 composer 命令。</p>
+<p><strong>更换安装源</strong>
+由于composer官方源被墙，导致接下来的安装速度将会极慢，所以可以考虑更换国内源，如：<a href="https://packagist.laravel-china.org/">https://packagist.laravel-china.org/</a>。
+更换方式有两种：</p>
+<ul>
+<li>选项一、全局配置（推荐）</li>
+</ul>
+<pre><code>$ composer config -g repo.packagist composer https://packagist.laravel-china.org
+</code></pre>
+<ul>
+<li>选项二、单独项目配置
+如果仅限当前工程使用镜像，去掉 -g 即可，如下：</li>
+</ul>
+<pre><code>$ composer config repo.packagist composer https://packagist.laravel-china.org
+</code></pre>
+<p><strong>创建一个新的 Laravel 项目</strong>
+创建一个新的 Laravel 项目有两种方式，都由命令行执行的：第一种是通过全局的 Laravel 安装器，另一种是通过 Composer 的 create-project 命令。</p>
+<ul>
+<li><strong>使用 Laravel 安装器安装</strong>
+安装 Laravel 安装器很简单，在命令行执行以下命令即可（如果已经安装过，会自动进行更新）：
+<code>$ composer global require laravel/installer</code>
+安装完成后，后续就可以通过 laravel new [项目名称] 来创建新的 Laravel 项目：</li>
+</ul>
+<pre><code>laravel new First_lv
+</code></pre>
+<ul>
+<li><strong>使用 Composer create-project 命令安装&amp;创建</strong></li>
+</ul>
+<pre><code>$ composer create-project laravel/laravel First_lv --prefer-dist
+</code></pre>
+<p>效果和上面使用安装器安装的一样，不过，使用这个方式安装的一个好处，可以安装旧版本的 Laravel 项目，比如要安装 5.6 版本的项目 First_lv_56 ，可以这么做：</p>
+<pre><code>$ composer create-project laravel/laravel First_lv_56 5.6.* --prefer-dist
+</code></pre>
+<p>安装至此，本以为运行命令行：<code>php artisan serve</code> 就能够见到Laravel安装成功的页面展示了，但是却依然出现了问题。</p>
+<ul>
+<li>500 server error
+解决方法：将项目根目录下的<code>.env.example</code>重命名为<code>.env</code>，因为<code>.env.example</code>只是一个新创建项目的示例模板，而<code>.env</code>才是真正的配置文件。</li>
+</ul>
+<p>再次启动服务器，又碰到了问题。</p>
+<ul>
+<li>/storage/logs/.log/日志内容<code>local.ERROR: No application encryption key has been specified.</code>
+解决方法：执行命令行：<code>php artisan key:generate</code> （生成项目key值 自动填到 .env文件中 APP_KEY）
+再次启动服务器，终于见到了想见的Laravel安装成功页面。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Wordpress在https下加载CSS、JS的方法]]></title>
+        <id>https://leohuaji.github.io/post/r8iieszvr</id>
+        <link href="https://leohuaji.github.io/post/r8iieszvr">
+        </link>
+        <updated>2019-05-05T11:58:03.000Z</updated>
+        <content type="html"><![CDATA[<p>在 functions.php 中加入以下代码：</p>
+<pre><code>add_filter('script_loader_src', 'agnostic_script_loader_src', 20,2);
+function agnostic_script_loader_src($src, $handle) {
+    return preg_replace('/^(http|https):/', '', $src);
+}
+
+add_filter('style_loader_src', 'agnostic_style_loader_src', 20,2);
+function agnostic_style_loader_src($src, $handle) {
+    return preg_replace('/^(http|https):/', '', $src);
+}
+</code></pre>
+<p>本文转载自知乎答案：<a href="https://www.zhihu.com/question/40027901/answer/147425413">Wordpress SSL  css,js样式不加载   http如何修改成https? - b4watch.com的回答 - 知乎</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[使用(*.frm *.MYD *.MYI)文件恢复MySql数据库]]></title>
+        <id>https://leohuaji.github.io/post/eixTKqLU</id>
+        <link href="https://leohuaji.github.io/post/eixTKqLU">
+        </link>
+        <updated>2019-03-11T05:57:21.000Z</updated>
+        <content type="html"><![CDATA[<p>意外得到（雾）一个数据库文件夹<strong>data</strong>，其中包含一个数据库名文件夹<strong>db_name</strong>，打开数据库文件夹，其包含：相同数量的<strong>frm</strong>、<strong>myd</strong>、<strong>myi</strong>格式的文件，及一个<strong>db.opt</strong>文件。</p>
+<p>文件夹结构图如下：</p>
+<ul>
+<li>data
+<ul>
+<li>db_name
+<ul>
+<li>db.opt——数据库编码信息文件</li>
+<li>*.frm  ——数据表结果文件</li>
+<li>*.myd ——数据表数据文件</li>
+<li>*.myi  ——数据表索引文件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>将上述数据库文件导入Mysql：</p>
+<ol>
+<li>
+<p>进入Mysql安装目录（前提是Mysql已经被安装）</p>
+</li>
+<li>
+<p>在安装目录下，找到<strong>my.ini</strong>文件，使用编辑器（推荐使用sublime_text）打开，打开后找到datadir所在目录。</p>
+<p>如：datadir=&quot;D:\mysql-5.7.18-winx64\data&quot;</p>
+</li>
+<li>
+<p>将数据库文件夹<strong>db_name</strong>复制到找到的目录中</p>
+</li>
+<li>
+<p>重启Mysql服务后，就能在数据库中看到以db_name为名的数据库了</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[搬瓦工Shadowsocks隐藏安装入口]]></title>
+        <id>https://leohuaji.github.io/post/AAUddrkYS</id>
+        <link href="https://leohuaji.github.io/post/AAUddrkYS">
+        </link>
+        <updated>2019-03-04T09:10:47.000Z</updated>
+        <content type="html"><![CDATA[<p>在VPS的Kiwivm控制面板页面打开的前提下，打开下方链接，即可进入Shadowsocks安装页面。
+<a href="https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks">打开此链接</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[phpMyAdmin提示The mbstring extension is missing. Please check your PHP   configuration.的解决方法]]></title>
+        <id>https://leohuaji.github.io/post/YEaFz_11b</id>
+        <link href="https://leohuaji.github.io/post/YEaFz_11b">
+        </link>
+        <updated>2019-02-15T08:36:41.000Z</updated>
+        <content type="html"><![CDATA[<p>本文介绍在Linux（本人使用的是Ubuntu）安装phpMyAdmin后，打开<em>http://localhost/phpmyadmin</em>提示“The mbstring extension is missing. Please check your PHP configuration.”的解决方法。</p>
+<p>安装phpMyAdmin：</p>
+<p>打开终端，输入以下命令行：</p>
+<pre><code>sudo apt-get install phpmyadmin
+</code></pre>
+<p>具体步骤不再赘述（安装选项我选的Apache）。</p>
+<p>安装完后，phpMyAdmin提示“The mbstring extension is missing. Please check your PHP configuration.”</p>
+<p><strong>解决方法：</strong></p>
+<p>在你的Apache目录底下，找到php.ini这个文件，使用root权限vi（或vim）编辑它。</p>
+<p>以我的目录为例：</p>
+<pre><code>sudo vim /etc/php/7.0/apache2/php.ini
+</code></pre>
+<p>在大概888行左右，找到“;extension=php_mbstring.dll”这一条，把前面的分号（即注释）去掉。</p>
+<p>然后保存退出。</p>
+<p>再重新启动Apache：</p>
+<pre><code>service apache2 restart
+</code></pre>
+<p>此时，再打开phpMyAdmin，理论上就没有问题了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu下使用apt-get方式安装tomcat后eclipse提示“Could not load the Tomcat server   configuration at /usr/share/tomcat8/conf.”的解决方法]]></title>
+        <id>https://leohuaji.github.io/post/8OUmZQ1Lm</id>
+        <link href="https://leohuaji.github.io/post/8OUmZQ1Lm">
+        </link>
+        <updated>2018-04-10T06:59:40.000Z</updated>
+        <content type="html"><![CDATA[<p>因为嫌从官网下载安装tomcat后配置环境变量和端口太麻烦，我选择了直接使用apt-get从Ubuntu源安装tomcat，安装过程一帆风顺，结果在eclipse中配置配置eclipse是却出现了麻烦。</p>
+<p>本文介绍eclipse配置tomcat后，运行项目提示“Could not load the Tomcat server configuration at /usr/share/tomcat8/conf.”的问题解决方法。</p>
+<p>先介绍Ubuntu源安装tomcat</p>
+<p><strong>安装tomcat：</strong></p>
+<pre><code>sudo apt-get install tomcat8
+</code></pre>
+<p>一会儿过后，tomcat8即安装成功，目录/usr/share/tomcat8</p>
+<p><strong>启动tomcat：</strong></p>
+<pre><code>service tomcat8 start
+</code></pre>
+<p>此时打开浏览器，访问http://localhost:8080</p>
+<p>页面显示安装成功</p>
+<p>美滋滋的打开eclipse配置好tomcat，运行项目时却提示如下：</p>
+<p>Could not load the Tomcat server configuration at /Servers/Tomcat v7.0 Server at localhost-config. The configuration may be corrupt or incomplete.</p>
+<p>本文即旨在解决此问题。</p>
+<p>问题原因：通过apt-get源安装的tomcat，Ubuntu会将tomcat文件分配到多个目录，之后在eclipse中配置tomcat时，eclipse无法识别tomcat的配置。</p>
+<p><strong>解决方法：</strong></p>
+<pre><code>sudo ln -s /var/lib/tomcat8/conf /usr/share/tomcat8/conf
+</code></pre>
+<pre><code>sudo ln -s /etc/tomcat8/policy.d/03catalina.policy /usr/share/tomcat8/conf/catalina.policy
+</code></pre>
+<pre><code>sudo ln -s /var/log/tomcat8/ /usr/share/tomcat8/log
+</code></pre>
+<pre><code>sudo chmod -R 777 /usr/share/tomcat8/conf
+</code></pre>
+<p>以上命令将tomcat的多个文件目录软链接到了主目录/usr/share/tomcat8中，并给予足够权限。这样，在eclipse中运行项目就不会再收到上面的错误提示了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[利用Tshock在Centos上搭建Terraria云服务器]]></title>
+        <id>https://leohuaji.github.io/post/Lh6o8o9ql</id>
+        <link href="https://leohuaji.github.io/post/Lh6o8o9ql">
+        </link>
+        <updated>2018-04-07T10:23:57.000Z</updated>
+        <content type="html"><![CDATA[<p>本文介绍如何在云服务器上搭建Terraria（泰拉瑞亚）游戏服务器。</p>
+<p>想和小伙伴一起玩Terraria，但是搭建本地服务器依旧很不方便，所以想搭建自己的云服务器，让小伙伴们随时可以连接，开始游戏。</p>
+<p>这里，我的搭建环境是“阿里云（Centos）”，如果你想参考此教程在自己的服务器上搭建游戏服务器，可能因系统差异，需要注意操作差别。</p>
+<p>接下来会用到的工具<a href="https://tshock.co/xf/index.php">Tshock</a>是一款第三方的Terraria开服工具，与官方工具相比，更方便自由的功能。</p>
+<p>但是，Terraria是用.Net开发的，在Linux上运行需要mono支持。（Xamarin公司开发的跨平台 .NET运行环境）</p>
+<p>开始吧。</p>
+<p><strong>安装mono：</strong></p>
+<p>Mono包并没有包含在CentOS的仓库里，通过yum是无法直接安装的，我们需要把Mono的仓库导入到包仓库里，运行如下命令行：</p>
+<pre><code>rpm --import &quot;http://keyserver.ubuntu.com/pks/lookup?op=get&amp;amp;search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF&quot;
+</code></pre>
+<pre><code>yum-config-manager --add-repo http://download.mono-project.com/repo/centos/
+</code></pre>
+<p>若提示找不到yum-config-manager，是因为系统默认未安装这个命令，此命令在yum-utils 包里，可通过命令yum -y install yum-utils 安装：</p>
+<pre><code>yum -y install yum-utils
+</code></pre>
+<pre><code>rpm -qa | grep yum
+</code></pre>
+<p>命令滚动后，执行：</p>
+<pre><code>yum install mono
+</code></pre>
+<p>命令滚动后运行</p>
+<pre><code>mono –V
+</code></pre>
+<p>查看版本号，确认安装成功。</p>
+<p><strong>下载Tshock：</strong></p>
+<pre><code>wget -O tshock.zip 'https://github.com/Pryaxis/TShock/releases/download/v4.3.25/tshock_4.3.25.zip'
+</code></pre>
+<p>为适应版本的更新，可以在<a href="https://github.com/Pryaxis/TShock/releases">这里</a>找到最新的版本，然后替换上面命令行中的版本号（注意有两处），就可以下载到最新的版本。</p>
+<p>解压：
+先安装unzip（安装过则跳过此步骤）：</p>
+<pre><code>yum install unzip
+</code></pre>
+<p>解压Tshock（具体目录看你的情况）：</p>
+<pre><code>unzip tshock.zip -d 你的目录
+</code></pre>
+<p><strong>运行Tshock：</strong></p>
+<p>在运行之前，需要安装screen。（Screen是一款由GNU计划开发的用于命令行终端切换的自由软件，相当于Windows下不同的窗口）</p>
+<pre><code>yum install screen
+</code></pre>
+<p>进入tshock目录，</p>
+<pre><code>ls -l
+</code></pre>
+<p>可以看到其中文件：</p>
+<p>GeoIP.dat
+Newtonsoft.Json.dll
+OTAPI.dll
+ServerLog.txt
+ServerPlugins
+sqlite3.dll
+TerrariaServer.exe
+tshock</p>
+<p>运行Tshock：</p>
+<pre><code>screen mono TerrariaServer.exe
+</code></pre>
+<p>这就可以开始配置服务器了。</p>
+<p><strong>配置服务器：</strong></p>
+<p>样式如下：</p>
+<p>n 新建世界</p>
+<p>d 删除世界</p>
+<p>choose world：</p>
+<p><strong>新建世界：</strong></p>
+<p>choose world: n</p>
+<p>输入“世界”名称.</p>
+<p>Max players (press enter for 8):（设置玩家数量，最大不超过8）</p>
+<p>Server port (press enter for 7777): （设置端口，不超过7777）</p>
+<p>Automatically forward port? (y/n):y</p>
+<p>Server password (press enter for none):（设置密码）</p>
+<p>然后就看命令行滚动吧，需要一段时间，滚动完毕以后即表示服务器配置完成。</p>
+<p>此时可以用Ctrl+A+D切出会话，使服务器在后台运行即可。</p>
+<p>打开游戏，通过你服务器的公网ip地址、端口、密码登入即可开始游戏了。</p>
+<p>PS：</p>
+<p>下次若想要重新配置游戏世界，步骤如下：</p>
+<pre><code>screen -ls
+</code></pre>
+<p>There is a screen on:
+​              *****.pts-0.izwz928lyt2y9r0sxag9dsz (Detached)
+1 Socket in /var/run/screen/S-root.</p>
+<p>（星号即之前使用的会话 id号）</p>
+<pre><code>screen -r *****
+</code></pre>
+<p>即可切换到启动了服务器的会话，此时运行</p>
+<pre><code>mono TerrariaServer.exe
+</code></pre>
+<p>可继续进行服务器配置。</p>
+<p>Ctrl+A+D可再切出会话。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于Windows和Ubuntu的时间差问题的解决方法]]></title>
+        <id>https://leohuaji.github.io/post/Ial8ZIfo7</id>
+        <link href="https://leohuaji.github.io/post/Ial8ZIfo7">
+        </link>
+        <updated>2017-10-29T08:25:41.000Z</updated>
+        <content type="html"><![CDATA[<p>先说下两个概念：</p>
+<p><strong>UTC</strong> 即Universal Time Coordinated，<strong>协调世界时</strong>（<a href="https://baike.baidu.com/item/%E5%8D%8F%E8%B0%83%E4%B8%96%E7%95%8C%E6%97%B6/787659?fr=aladdin">世界统一时间</a>）</p>
+<p><strong>GMT</strong> 即Greenwich Mean Time，<strong>格林尼治平时</strong></p>
+<p>Windows 与 Mac/Linux 看待系统硬件时间的方式是不一样的：</p>
+<p>Windows把计算机硬件时间当作本地时间(local time)，所以在Windows系统中显示的时间跟BIOS中显示的时间是一样的。</p>
+<p>Linux/Unix/Mac把计算机硬件时间当作 UTC， 所以在Linux/Unix/Mac系统启动后在该时间的基础上，加上电脑设置的时区数（ 比如我们在中国，它就加上“8” ），因此，Linux/Unix/Mac系统中显示的时间总是比Windows系统中显示的时间快8个小时。</p>
+<p>所以，当你在Linux/Unix/Mac系统中，把系统现实的时间设置正确后，其实计算机硬件时间是在这个时间上减去8小时，所以当你切换成Windows系统后，会发现时间慢了8小时。就是这样个原因。</p>
+<p>既然知道原因了，就好解决了。</p>
+<p>这里提供两种解决方法:</p>
+<p><strong>方法一</strong>：</p>
+<p>在Ubuntu中把计算机硬件时间改成系统显示的时间，即禁用Ubuntu的UTC。</p>
+<p>这又有另一个需要注意的地方：</p>
+<p>在 Ubuntu 16.04 版本以前，关闭UTC的方法是编辑/etc/default/rcS，将UTC=yes改成UTC=no， 但在Ubuntu 16.04使用systemd启动之后，时间改成了由timedatectl来管理，所以更改方法是</p>
+<pre><code>timedatectl set-local-rtc 1 --adjust-system-clock
+</code></pre>
+<p>执行后重启Ubuntu，应该就没有问题了。</p>
+<p><strong>方法二</strong>：</p>
+<p>修改 Windows对硬件时间的对待方式，让 Windows把硬件时间当作UTC.</p>
+<p>打开命令行程序，在命令行中输入下面命令并回车</p>
+<pre><code>Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
+</code></pre>
+<p>应该就没有问题了。</p>
+<p>这两种方法，我个人倾向于使用第一种。</p>
+]]></content>
+    </entry>
+</feed>
