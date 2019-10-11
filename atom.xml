@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leohuaji.github.io</id>
     <title>简直药丸</title>
-    <updated>2019-08-22T01:09:58.042Z</updated>
+    <updated>2019-10-11T02:29:39.616Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leohuaji.github.io"/>
     <link rel="self" href="https://leohuaji.github.io/atom.xml"/>
@@ -10,6 +10,35 @@
     <logo>https://leohuaji.github.io/images/avatar.png</logo>
     <icon>https://leohuaji.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 简直药丸</rights>
+    <entry>
+        <title type="html"><![CDATA[steam个人资料主页艺术展柜上传长图]]></title>
+        <id>https://leohuaji.github.io/post/steam-ge-ren-zi-liao-zhu-ye-yi-zhu-zhan-ju-shang-chuan-chang-tu</id>
+        <link href="https://leohuaji.github.io/post/steam-ge-ren-zi-liao-zhu-ye-yi-zhu-zhan-ju-shang-chuan-chang-tu">
+        </link>
+        <updated>2019-10-11T01:55:09.000Z</updated>
+        <content type="html"><![CDATA[<p>成果图<br>
+<img src="https://s2.ax1x.com/2019/10/11/uHmNKP.png" alt="uHmNKP.png"></p>
+<p>步骤：<br>
+1.打开https://steam.design，下载已经自动切割好的展示图。<br>
+2.Chrome登录steam并打开个人资料页面<br>
+3.准备上传展柜左侧图，在选择好文件后，打开控制台，输入：</p>
+<pre><code>var num= document.getElementsByName(&quot;image_width&quot;)[0].value;
+document.getElementsByName(&quot;image_width&quot;)[0].value = 1000;
+document.getElementsByName(&quot;image_height&quot;)[0].value = 1;
+</code></pre>
+<p>理论上返回值为1<br>
+然后在网页上点击上传<br>
+4.准备上传展柜右侧图，在选择好文件后，打开控制台，输入：</p>
+<pre><code>var num= document.getElementsByName(&quot;image_width&quot;)[0].value;
+document.getElementsByName(&quot;image_height&quot;)[0].value = num-(num-1);
+document.getElementsByName(&quot;image_width&quot;)[0].value= num*100;
+</code></pre>
+<p>返回值可能为1000（有返回值就行）<br>
+然后在网页上点击上传<br>
+5.然后在个人资料界面点击编辑个人资料，把背景和上传好的艺术图片放进展柜即可。（<strong>选取的时候图片会显示为一条横线，点击放入柜内后会恢复正常</strong>）</p>
+<p>成果应该就像上面成果图一样了！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Firefox设置搜索结果在新窗口打开（而不是覆盖原有的页面）]]></title>
         <id>https://leohuaji.github.io/post/firefox-she-zhi-sou-suo-jie-guo-zai-xin-chuang-kou-da-kai-er-bu-shi-fu-gai-yuan-you-de-ye-mian</id>
@@ -309,37 +338,6 @@ tshock</p>
 </code></pre>
 <p>可继续进行服务器配置。</p>
 <p>Ctrl+A+D可再切出会话。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于Windows和Ubuntu的时间差问题的解决方法]]></title>
-        <id>https://leohuaji.github.io/post/Ial8ZIfo7</id>
-        <link href="https://leohuaji.github.io/post/Ial8ZIfo7">
-        </link>
-        <updated>2017-10-29T08:25:41.000Z</updated>
-        <content type="html"><![CDATA[<p>先说下两个概念：</p>
-<p><strong>UTC</strong> 即Universal Time Coordinated，<strong>协调世界时</strong>（<a href="https://baike.baidu.com/item/%E5%8D%8F%E8%B0%83%E4%B8%96%E7%95%8C%E6%97%B6/787659?fr=aladdin">世界统一时间</a>）</p>
-<p><strong>GMT</strong> 即Greenwich Mean Time，<strong>格林尼治平时</strong></p>
-<p>Windows 与 Mac/Linux 看待系统硬件时间的方式是不一样的：</p>
-<p>Windows把计算机硬件时间当作本地时间(local time)，所以在Windows系统中显示的时间跟BIOS中显示的时间是一样的。</p>
-<p>Linux/Unix/Mac把计算机硬件时间当作 UTC， 所以在Linux/Unix/Mac系统启动后在该时间的基础上，加上电脑设置的时区数（ 比如我们在中国，它就加上“8” ），因此，Linux/Unix/Mac系统中显示的时间总是比Windows系统中显示的时间快8个小时。</p>
-<p>所以，当你在Linux/Unix/Mac系统中，把系统现实的时间设置正确后，其实计算机硬件时间是在这个时间上减去8小时，所以当你切换成Windows系统后，会发现时间慢了8小时。就是这样个原因。</p>
-<p>既然知道原因了，就好解决了。</p>
-<p>这里提供两种解决方法:</p>
-<p><strong>方法一</strong>：</p>
-<p>在Ubuntu中把计算机硬件时间改成系统显示的时间，即禁用Ubuntu的UTC。</p>
-<p>这又有另一个需要注意的地方：</p>
-<p>在 Ubuntu 16.04 版本以前，关闭UTC的方法是编辑/etc/default/rcS，将UTC=yes改成UTC=no， 但在Ubuntu 16.04使用systemd启动之后，时间改成了由timedatectl来管理，所以更改方法是</p>
-<pre><code>timedatectl set-local-rtc 1 --adjust-system-clock
-</code></pre>
-<p>执行后重启Ubuntu，应该就没有问题了。</p>
-<p><strong>方法二</strong>：</p>
-<p>修改 Windows对硬件时间的对待方式，让 Windows把硬件时间当作UTC.</p>
-<p>打开命令行程序，在命令行中输入下面命令并回车</p>
-<pre><code>Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
-</code></pre>
-<p>应该就没有问题了。</p>
-<p>这两种方法，我个人倾向于使用第一种。</p>
 ]]></content>
     </entry>
 </feed>

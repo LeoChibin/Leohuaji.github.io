@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>关于 | 简直药丸</title>
+<title>steam个人资料主页艺术展柜上传长图 | 简直药丸</title>
 <meta name="description" content="滑天下之大稽">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -85,28 +85,59 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">关于</h2>
+            <div class="feature-container" style="background-image: url('https://s2.ax1x.com/2019/10/11/uHmNKP.png')">
+            </div>
+          
+          <h2 class="post-title">steam个人资料主页艺术展柜上传长图</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-03-29</span>
+            <span><i class="icon-calendar-outline"></i> 2019-10-11</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://leohuaji.github.io/tag/yqbIYDdKg">
+                    steam
+                    
+                  </a>
+                
+              </span>
             
           </div>
           <div class="post-content">
-            <p>我是一个很菜的，几乎不会写代码的程序员。<br>
-这是我费尽心机搭的一个技术博客，但是，更新频率很低，因为肚子里没货。<br>
-还是需要学习啊。</p>
-<p>相关传送门：</p>
-<ul>
-<li>我的 <a href="https://blog.huaji.ink">生活博客</a></li>
-<li>我的 <a href="https://www.zhihu.com/people/liao-zhi-bin-69/activities">知乎</a></li>
-<li>我的 <a href="https://weibo.com/2859941022/profile">微博</a></li>
-<li>我的 <a href="https://github.com/Leohuaji">GitHub</a></li>
-<li>Telegram电报群:<a href="https://t.me/joinchat/L5ipUhYff4tk98bOrdqutQ">真是药丸</a>（一个沙雕群，只要你够沙雕，就来吧）</li>
-</ul>
+            <p>成果图<br>
+<img src="https://s2.ax1x.com/2019/10/11/uHmNKP.png" alt="uHmNKP.png"></p>
+<p>步骤：<br>
+1.打开https://steam.design，下载已经自动切割好的展示图。<br>
+2.Chrome登录steam并打开个人资料页面<br>
+3.准备上传展柜左侧图，在选择好文件后，打开控制台，输入：</p>
+<pre><code>var num= document.getElementsByName(&quot;image_width&quot;)[0].value;
+document.getElementsByName(&quot;image_width&quot;)[0].value = 1000;
+document.getElementsByName(&quot;image_height&quot;)[0].value = 1;
+</code></pre>
+<p>理论上返回值为1<br>
+然后在网页上点击上传<br>
+4.准备上传展柜右侧图，在选择好文件后，打开控制台，输入：</p>
+<pre><code>var num= document.getElementsByName(&quot;image_width&quot;)[0].value;
+document.getElementsByName(&quot;image_height&quot;)[0].value = num-(num-1);
+document.getElementsByName(&quot;image_width&quot;)[0].value= num*100;
+</code></pre>
+<p>返回值可能为1000（有返回值就行）<br>
+然后在网页上点击上传<br>
+5.然后在个人资料界面点击编辑个人资料，把背景和上传好的艺术图片放进展柜即可。（<strong>选取的时候图片会显示为一条横线，点击放入柜内后会恢复正常</strong>）</p>
+<p>成果应该就像上面成果图一样了！</p>
 
           </div>
         </div>
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://leohuaji.github.io/post/firefox-she-zhi-sou-suo-jie-guo-zai-xin-chuang-kou-da-kai-er-bu-shi-fu-gai-yuan-you-de-ye-mian">
+              <h3 class="post-title">
+                下一篇：Firefox设置搜索结果在新窗口打开（而不是覆盖原有的页面）
+              </h3>
+            </a>
+          </div>
+          
       </div>
 
       
